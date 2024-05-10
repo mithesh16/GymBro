@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Inputfield from './Inputfield.js'
 import NumberInput from './NumberInput.js';
-import { createNewWorkoutTemplate, getAllWorkoutTemplates } from '../Services/Workout.js';
+import { createNewWorkoutTemplate, getAllWorkoutTemplates } from '../Services/WorkoutTemplates.js';
 
 const AddWorkoutModal = ({visible,handlevisible,setTemplates}) => {
 

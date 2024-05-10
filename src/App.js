@@ -4,6 +4,7 @@ import NavBar from './Components/NavBar';
 import Workouts from './Pages/Workouts';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
+import Activity from './Pages/Activity';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           <Route path='/workouts' element={<> 
           <NavBar/>
            <Workouts/></>}/>
+           <Route path='/activity' element={<> 
+          <NavBar/>
+           <Activity/></>}/>
          
         </Routes>
       </div>

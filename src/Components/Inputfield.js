@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Inputfield = ({type,name,label,change,index,value}) => {
+const Inputfield = ({type,name,label,change,index,value,dis}) => {
   return (
     <div className="relative z-0 w-[90%] items-center bg-gray-900 group ">
       <input
@@ -9,6 +9,7 @@ const Inputfield = ({type,name,label,change,index,value}) => {
         type={type}
         onChange={change}
         defaultValue={value}
+        disabled={dis}
       />
       <label
         htmlFor="issuerEmail"

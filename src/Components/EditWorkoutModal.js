@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import Inputfield from './Inputfield.js'
 import NumberInput from './NumberInput.js';
-import { getAllWorkoutTemplates, updateWorkoutTemplate } from '../Services/Workout.js';
+import { getAllWorkoutTemplates, updateWorkoutTemplate } from '../Services/WorkoutTemplates.js';
 
 const EditWorkoutModal = ({visible,handlevisible,template,setTemplates}) => {
 

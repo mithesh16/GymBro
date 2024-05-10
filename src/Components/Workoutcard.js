@@ -1,10 +1,11 @@
 import React from 'react'
 import { MdDelete, MdEdit } from "react-icons/md";
-import { deleteWorkoutTemplate, getAllWorkoutTemplates } from '../Services/Workout';
+import { deleteWorkoutTemplate, getAllWorkoutTemplates } from '../Services/WorkoutTemplates';
 
 const Workoutcard = ({template,visible,handlevisible,setTemplateID,templateID,setTemplates}) => {
   const workouts=template.workouts
 
+  
   const deleteTemplate=async(id)=>{
     console.log(id)
     const resp=await deleteWorkoutTemplate(id);
@@ -37,11 +38,11 @@ const Workoutcard = ({template,visible,handlevisible,setTemplateID,templateID,se
         <p class="mt-1 flex items-baseline gap-x-1">
           <span class="text-md font-bold tracking-tight text-white">No of exercises:</span>
          
-          <span class="text-md font-bold leading-6 text-violet-400">{template.workouts.length}</span>
+          <span class="text-md font-bold leading-6 text-violet-400">{template.workouts?.length}</span>
         </p>
         {/* <a href="#" aria-describedby="tier-startup" class="mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-green-600 text-white shadow-sm hover:bg-green-800 focus-visible:outline-red-600">Buy plan</a> */}
         <ul role="list" class="leading-6">
-        {workouts.map((workout, index) => (
+        {workouts?.map((workout, index) => (
       <li key={index} className="mt-1 text-justify">
   <div className='flex justify-between'>
   <span className=' text-violet-400 text-lg font-bold '>{workout.name}</span>

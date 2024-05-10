@@ -4,7 +4,7 @@ import Workoutcard from '../Components/Workoutcard'
 import AddworkoutModal from '../Components/AddworkoutModal'
 import EditWorkoutModal from '../Components/EditWorkoutModal';
 
-import { getAllWorkoutTemplates } from '../Services/Workout';
+import { getAllWorkoutTemplates } from '../Services/WorkoutTemplates';
 
 
 const Workouts = () => {

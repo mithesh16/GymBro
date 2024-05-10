@@ -4,6 +4,7 @@ import { FaSquareFacebook, FaXmark } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
 import { FaBars } from "react-icons/fa6";
 import {AiOutlineClose,AiOutlineMenu} from "react-icons/ai";
+import { signOut } from 'firebase/auth';
 const NavBar = () => {
 
   const [nav, setNav] = useState(false);
@@ -38,10 +39,13 @@ const NavBar = () => {
         ))}
       </ul>
       {!nav && (
+
   <div className={`hidden md:flex items-center justify-center text-sm px-3 py-1 leading-none border rounded-3xl text-white border-white lg:mt-0`}>
-    <img src={usericon} className='rounded-3xl w-9 h-9 mr-2 border-white'/>
-    <p className='text-xl'>Mithesh</p>
+    {/* <img src={usericon} className='rounded-3xl w-9 h-9 mr-2 border-white'/>
+    <p className='text-xl'>Mithesh</p> */}
+    <button onClick={signOut}>SignOut</button>
   </div>
+
 )}
       {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className='block md:hidden '>

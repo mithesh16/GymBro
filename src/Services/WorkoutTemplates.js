@@ -1,4 +1,4 @@
-const email="mitheshsrini@gmail.com"
+const email=localStorage.getItem('email')
 export const createNewWorkoutTemplate=async(template)=>{
 
     //const email = JSON.parse(localStorage.getItem('user')).email;
