@@ -47,7 +47,7 @@ const createworkout=async()=>{
     templateName:tempateName,
     muscle:muscle,
     workouts:exercise,
-    email:"mitheshsrini@gmail.com"
+    email:localStorage.getItem('email')
   }
   console.log(JSON.stringify(obj))
 const resp=await createNewWorkoutTemplate(JSON.stringify(obj))

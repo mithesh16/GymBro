@@ -1,22 +1,35 @@
 import React, { useState } from 'react'
 import usericon from '../Assets/Images/images.png'
-import { FaSquareFacebook, FaXmark } from "react-icons/fa6";
+import { FaChevronUp, FaSquareFacebook, FaXmark } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
 import { FaBars } from "react-icons/fa6";
 import {AiOutlineClose,AiOutlineMenu} from "react-icons/ai";
-import { signOut } from 'firebase/auth';
+import { useNavigate } from "react-router-dom";
+import { GoogleAuthProvider,signInWithPopup } from 'firebase/auth';
+import {auth} from '../firebase/firebaseconfig'
+import { FaChevronDown } from "react-icons/fa6";
 const NavBar = () => {
 
+  const user=JSON.parse(localStorage.getItem('user'));
+  const navigation=useNavigate();
   const [nav, setNav] = useState(false);
+  const [open,setOpen]=useState(false)
+
   const handleNav = () => {
     setNav(!nav);
   };
+
   const navItems = [
     { id: 1, text: 'Home',link:'home' },
     { id: 2, text: 'Workouts',link:'workouts' },
     { id: 3, text: 'Activity',link: 'activity' },
-    { id: 4, text: 'Team',link: 'team' },
   ];
+
+  const signOut=()=>{
+    localStorage.removeItem('email');
+    localStorage.removeItem('user')
+    navigation('/')
+  }
 
   return (
 
@@ -34,17 +47,30 @@ const NavBar = () => {
             key={item.id}
             className='p-2 text-lg rounded-md m-2 cursor-pointer duration-300'
           >
-            <a href={`/${item.link}`} className='p-2 hover:bg-violet-400 cursor-pointer duration-300 text-lg bg-tranparent rounded-md hover:text-black'>{item.text}</a>
+            <Link to={`/${item.link}`}>
+            <p className='p-2 hover:bg-violet-400 cursor-pointer duration-300 text-lg bg-tranparent rounded-md hover:text-black'>{item.text}</p></Link>
           </li>
         ))}
       </ul>
       {!nav && (
 
   <div className={`hidden md:flex items-center justify-center text-sm px-3 py-1 leading-none border rounded-3xl text-white border-white lg:mt-0`}>
-    {/* <img src={usericon} className='rounded-3xl w-9 h-9 mr-2 border-white'/>
-    <p className='text-xl'>Mithesh</p> */}
-    <button onClick={signOut}>SignOut</button>
-  </div>
+    <img src={user.photoURL} className='rounded-3xl w-9 h-9 mr-2 border-white'/>
+    <p className='text-lg mr-2'>{user.displayName}</p>
+    {open?(<button onClick={()=>setOpen(!open)}><FaChevronUp size={20}/></button>):(<button onClick={()=>setOpen(!open)}><FaChevronDown size={20}/></button>)}
+   
+
+    {open &&
+    <div class="absolute top-20 right-6 z-10 mt-2 w-56 origin-top-right border border-black rounded-lg bg-violet-400 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+      {/* <button  class="text-gray-900 w-full block px-4 py-2 text-lg  bg-inherit rounded border border-black  " role="menuitem" tabindex="-1" id="menu-item-0">Profile</button> */}
+      <button onClick={signOut} class="text-gray-900  w-full block px-4 py-2 text-lg  bg-inherit rounded border border-black" role="menuitem" tabindex="-1" id="menu-item-2">Log Out</button>
+    </div>
+
+}
+</div>
+
+
+
 
 )}
       {/* Mobile Navigation Icon */}

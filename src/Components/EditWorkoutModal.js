@@ -66,7 +66,7 @@ const updateworkout=async()=>{
     templateName:templateName,
     muscle:muscle,
     workouts:exercise, 
-    email:"mitheshsrini@gmail.com"
+    email:localStorage.getItem('email')
   }
  const resp=await updateWorkoutTemplate(JSON.stringify(obj),template._id)
  if(resp.error){

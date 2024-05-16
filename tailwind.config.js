@@ -4,7 +4,10 @@ const plugin = require('tailwindcss');
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: { 
+      backgroundImage: {
+      'login-bg': "url('/Users/mithesh/GymBro-1/src/Assets/Images/bg.jpeg)",
+    }},
   },
   plugins: [
     plugin(function({addVariant}){

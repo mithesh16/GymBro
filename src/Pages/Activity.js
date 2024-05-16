@@ -4,14 +4,19 @@ import SelectTemplateModal from '../Components/SelectTemplateModal';
 import { getAllWorkoutTemplates } from '../Services/WorkoutTemplates';
 import AddActivityModal from '../Components/AddActivityModal';
 import { getAllWorkouts } from '../Services/Workouts';
+import EditActivityModal from '../Components/EditActivityModal';
+
 const Activity = () => {
 
   const [visible, setVisible] = useState(false);
+  const[editvisible,setEditvisible]=useState(false)
   const handlevisible = () => setVisible((cur) => !cur);
+  const handleeditvisible=()=>setEditvisible((cur)=>!cur);
 
   const[templates,setTemplates]=useState([])
   let [temp,setTemplate]=useState();
 const[workouts,setWorkouts]=useState([])
+const [workout,setWorkout]=useState();
 
 const setTemp=(template)=>{
   console.log(template);
@@ -42,15 +47,30 @@ const getTemplates=async()=>{
         My Activity
         <button htmlFor='addWorkout' className='ml-3 rounded-3xl h-8 w-8 text-lg bg-violet-400 text-white items-center justify-center' onClick={()=>handlevisible(visible)} >+</button>
       </div>
-      <div className=' flex flex-col items-center justify-center gap-5'>
-      {workouts.map((workout, index) => (
-        <ActivityCard workout={workout}/>
-      ))}
+      <div className=''>
+      {workouts.length > 0 ? (
+  <div className=' flex flex-col items-center justify-center gap-5'>
+   {workouts.map((workout, index) => (
+  <ActivityCard workout={workout} getWorkouts={getWorkouts} setWorkout={setWorkout}handleeditvisible={handleeditvisible} editvisible={editvisible}/>
+))}
+  </div>
+) : (
+<div className='w-full h-full flex items-center justify-center'>
+  <div className='text-center justify-center items-center  pt-24'>
+    <h1 className='font-bold text-4xl'>No activity created</h1>
+    <h3 className='font-bold text-2xl'>Track a new activity</h3>
+    <button htmlFor='addWorkout' className=' rounded-3xl h-12 w-12 text-2xl bg-white text-black items-center justify-center' onClick={()=>handlevisible(visible)} >+</button>
+  </div>
+</div>
+
+)}
       </div>
+
+
 
       {choice==0?(<SelectTemplateModal visible={visible} handlevisible={handlevisible} templates={templates} setTemp={setTemp} setChoice={setChoice}/>):(<AddActivityModal visible={visible} handlevisible={handlevisible} template={temp} setChoice={setChoice} getWorkouts={getWorkouts}/> )
       }
-      
+      <EditActivityModal handleeditvisible={handleeditvisible} editvisible={editvisible} workout={workout} getWorkouts={getWorkouts}/>
     </div>
 
     

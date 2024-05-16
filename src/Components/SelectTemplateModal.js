@@ -3,9 +3,10 @@ import Inputfield from './Inputfield.js'
 import NumberInput from './NumberInput.js';
 import { createNewWorkoutTemplate, getAllWorkoutTemplates } from '../Services/WorkoutTemplates.js';
 import TemplateCard from './TemplateCard.js';
+import { useNavigate } from "react-router-dom";
 
 const SelectTemplateModal = ({visible,handlevisible,templates,setTemp,setChoice}) => {
-
+  const navigation=useNavigate();
     if (!visible) return null;
     return (
    <div className=' fixed inset-2 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center'>
@@ -28,7 +29,12 @@ const SelectTemplateModal = ({visible,handlevisible,templates,setTemp,setChoice}
   <div className='text-center justify-center items-center  pt-24'>
     <h1 className='font-bold text-4xl'>No templates available</h1>
     <h3 className='font-bold text-2xl'>Create a new template</h3>
-    <button htmlFor='addWorkout' className=' rounded-3xl h-12 w-12 text-2xl bg-white text-black items-center justify-center' onClick={()=>handlevisible(visible)} >+</button>
+    <button htmlFor='addWorkout' className=' rounded-3xl h-12 w-12 text-2xl bg-white text-black items-center justify-center' onClick={()=>{
+      handlevisible(visible)
+      navigation('/workouts')
+
+    }
+      } >+</button>
   </div>
 </div>
 )}

@@ -1,13 +1,15 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 const HeroSection = () => {
+
+  const user=JSON.parse(localStorage.getItem('user'));
   return (
     <section className="bg-[url('https://cdn.wallpapersafari.com/65/19/CRuKD9.jpg')] bg-contain bg-no-repeat bg-right bg-opacity-5 bg-black ">
     <div className=" bg-transparent container h-full flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between"
     >
-      <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left bg-transparent">
+      <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-lg xl:max-w-xl lg:text-left bg-transparent">
         <h1 className="text-5xl font-bold leading-none sm:text-6xl bg-inherit">Welcome
-          <span className="dark:text-violet-400 bg-inherit"> </span>
+          <span className="dark:text-violet-400 text-5xl ml-4 bg-inherit">{user.displayName}</span>
         </h1>
         <p className="mt-6 mb-8 text-lg sm:mb-12 bg-inherit">Track your Workouts, get Better Results, and be the Best Version of Yourself with
          <span className="text-2xl sm:mb-12 text-violet-400 text-center bg-inherit">    GYM BROS</span> 

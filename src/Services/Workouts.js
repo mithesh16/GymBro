@@ -5,11 +5,11 @@ export const createNewWorkout=async(activity)=>{
   console.log(activity)
     //const email = JSON.parse(localStorage.getItem('user')).email;
     try {
-        const response = await fetch(`http://localhost:3000/workouts`, {
+        const response = await fetch(`https://gymbromiddleware.onrender.com/workouts`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin':'http://localhost:3000',
+            'Access-Control-Allow-Origin':' http://192.168.1.4:3000',
 
           },
           body: activity
@@ -24,11 +24,12 @@ export const createNewWorkout=async(activity)=>{
 
 export const getAllWorkouts=async()=>{
     try{
-        const response= await fetch(`http://localhost:3000/workouts?email=${email}`,{
+        const response= await fetch(`https://gymbromiddleware.onrender.com/workouts?email=${email}`,{
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin':'http://localhost:3000',
+              'Access-Control-Allow-Origin':' http://192.168.1.4:3000',
+
   
             },
             
@@ -42,16 +43,17 @@ export const getAllWorkouts=async()=>{
 
 
 
-export const updateWorkout=async(template,id)=>{
+export const updateWorkout=async(workout,id)=>{
 
       try {
-        const response = await fetch(`http://localhost:3000/workouts/${id}`, {
+        const response = await fetch(`https://gymbromiddleware.onrender.com/workouts/${id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin':'http://localhost:3000',
+            'Access-Control-Allow-Origin':' http://192.168.1.4:3000',
+
           },
-          body: template
+          body: workout
       })
     
         return await response.json();
@@ -64,11 +66,12 @@ export const updateWorkout=async(template,id)=>{
     export const deleteWorkout=async(id)=>{
     
       try{
-        const response=await fetch(`http://localhost:3000/workouts/${id}`,{
+        const response=await fetch(`https://gymbromiddleware.onrender.com/workouts/${id}`,{
           method:'DELETE',
           headers: {
                   'Content-Type': 'application/json',
-                  'Access-Control-Allow-Origin':'http://localhost:3000',
+                  'Access-Control-Allow-Origin':' http://192.168.1.4:3000',
+
                 },
         })
         console.log(response)

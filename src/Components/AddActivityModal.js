@@ -28,7 +28,7 @@ const createworkout=async()=>{
     week:week,
     muscle:muscle,
     exercises:allExercise,
-    email:"mitheshsrini@gmail.com"
+  email:localStorage.getItem('email')
   }
 console.log(allExercise)
  console.log(obj)

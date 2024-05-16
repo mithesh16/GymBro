@@ -1,14 +1,36 @@
 import React from 'react'
+import { MdEdit,MdDelete } from 'react-icons/md'
+import { deleteWorkout } from '../Services/Workouts'
+const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisible}) => {
+      console.log(workout)
+        
+  const deleteworkout=async(id)=>{
+    console.log(id)
+    const resp=await deleteWorkout(id);
+    const alltemps = await getWorkouts()
+    console.log(resp)
+  }
 
-const ActivityCard = ({workout}) => {
-      console.log(workout.exercises)
   return (
-    <div className=' rounded-3xl ring-1 p-5 ring-gray-700 w-[90%] h-fit drop-shadow-lg drop-shadow-white '>
+    <div className=' rounded-3xl ring-1 p-5 ring-gray-700 w-[90%] h-full drop-shadow-lg drop-shadow-white '>
             <div className='flex items-center justify-between'>
                 <div>
-                <p className='text-2xl text-violet-400'>{workout.title}</p>
-                <p className='text-xl'>Muscle : <span className='text-violet-400'>{workout.muscle}</span></p>
-                </div>
+          <div className='flex gap-x-5'>
+            <p className='text-2xl text-violet-400'>{workout.title} </p>
+            <div className='flex justify-center items-center'>
+              {/* <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ' onClick={() => {
+                  handleeditvisible(editvisible)
+                  setWorkout(workout)
+              }} >
+                <MdEdit className='bg-violet-400' /></button> */}
+              <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ml-3' onClick={() => {
+                deleteworkout(workout._id)
+              }} >
+                < MdDelete className='bg-violet-400' /> </button>
+            </div>
+          </div>
+          <p className='text-xl'>Muscle : <span className='text-violet-400'>{workout.muscle}</span></p>
+        </div>
            <div>
            <p className='text-2xl text-violet-400 text-end'>{workout.createdAt.slice(0,10)}</p>
             <p className='text-xl'> Week no :<span className='text-violet-400'> {workout.week}</span></p>
