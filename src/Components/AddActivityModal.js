@@ -3,7 +3,7 @@ import Inputfield from './Inputfield.js'
 import NumberInput from './NumberInput.js';
 import { createNewWorkoutTemplate, getAllWorkoutTemplates } from '../Services/WorkoutTemplates.js';
 import {createNewWorkout} from '../Services/Workouts.js';
-const AddActivityModal = ({visible,handlevisible,template,setChoice,getWorkouts}) => {
+const AddActivityModal = ({visible,handlevisible,template,setChoice,getWorkouts,toast}) => {
 
 
 const [tempateName,setTemplateName]=useState(template?.templateName)
@@ -32,17 +32,27 @@ const createworkout=async()=>{
   }
 console.log(allExercise)
  console.log(obj)
-//   console.log(JSON.stringify(obj))
 const resp=await createNewWorkout(JSON.stringify(obj))
+
 if(resp.error){
   console.log("Error")
 
 }
 else{
-    console.log(resp)
+
   handlevisible(visible)
   const allworkouts=await getWorkouts();
   setChoice(0)
+  toast.success('Activity created successfully!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
 }
 
 }

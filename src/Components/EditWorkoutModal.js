@@ -3,7 +3,7 @@ import Inputfield from './Inputfield.js'
 import NumberInput from './NumberInput.js';
 import { getAllWorkoutTemplates, updateWorkoutTemplate } from '../Services/WorkoutTemplates.js';
 
-const EditWorkoutModal = ({visible,handlevisible,template,setTemplates}) => {
+const EditWorkoutModal = ({visible,handlevisible,template,setTemplates,toast}) => {
 
 // const [templateName, setTemplateName] = useState(template ? template.templateName : '');
 //   const [muscle, setMuscle] = useState(template ? template.muscle : '');
@@ -73,10 +73,22 @@ const updateworkout=async()=>{
   console.log("Error")
 }
 else{
+
   handlevisible(visible)
+  toast.success('Template updated successfully!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
 }
  const alltemps=await getAllWorkoutTemplates();
  setTemplates(alltemps)
+
 
 }
 

@@ -5,6 +5,8 @@ import { getAllWorkoutTemplates } from '../Services/WorkoutTemplates';
 import AddActivityModal from '../Components/AddActivityModal';
 import { getAllWorkouts } from '../Services/Workouts';
 import EditActivityModal from '../Components/EditActivityModal';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Activity = () => {
 
@@ -51,7 +53,7 @@ const getTemplates=async()=>{
       {workouts.length > 0 ? (
   <div className=' flex flex-col items-center justify-center gap-5'>
    {workouts.map((workout, index) => (
-  <ActivityCard workout={workout} getWorkouts={getWorkouts} setWorkout={setWorkout}handleeditvisible={handleeditvisible} editvisible={editvisible}/>
+  <ActivityCard workout={workout} getWorkouts={getWorkouts} setWorkout={setWorkout}handleeditvisible={handleeditvisible} editvisible={editvisible} toast={toast}/>
 ))}
   </div>
 ) : (
@@ -66,11 +68,22 @@ const getTemplates=async()=>{
 )}
       </div>
 
+<ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
 
-
-      {choice==0?(<SelectTemplateModal visible={visible} handlevisible={handlevisible} templates={templates} setTemp={setTemp} setChoice={setChoice}/>):(<AddActivityModal visible={visible} handlevisible={handlevisible} template={temp} setChoice={setChoice} getWorkouts={getWorkouts}/> )
+      {choice==0?(<SelectTemplateModal visible={visible} handlevisible={handlevisible} templates={templates} setTemp={setTemp} setChoice={setChoice}/>):(<AddActivityModal visible={visible} handlevisible={handlevisible} template={temp} setChoice={setChoice} getWorkouts={getWorkouts} toast={toast}/> )
       }
-      <EditActivityModal handleeditvisible={handleeditvisible} editvisible={editvisible} workout={workout} getWorkouts={getWorkouts}/>
+      <EditActivityModal handleeditvisible={handleeditvisible} editvisible={editvisible} workout={workout} getWorkouts={getWorkouts} toast={toast}/>
     </div>
 
     

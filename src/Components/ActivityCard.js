@@ -1,12 +1,22 @@
 import React from 'react'
 import { MdEdit,MdDelete } from 'react-icons/md'
 import { deleteWorkout } from '../Services/Workouts'
-const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisible}) => {
+const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisible,toast}) => {
 
         
   const deleteworkout=async(id)=>{
     console.log(id)
     const resp=await deleteWorkout(id);
+    toast.success('Activity deleted successfully!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
     const alltemps = await getWorkouts()
     console.log(resp)
   }

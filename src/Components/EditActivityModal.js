@@ -4,7 +4,7 @@ import NumberInput from './NumberInput.js';
 import { createNewWorkoutTemplate, getAllWorkoutTemplates } from '../Services/WorkoutTemplates.js';
 import {updateWorkout} from '../Services/Workouts.js';
 
-const EditActivityModal = ({editvisible,handleeditvisible,workout,getWorkouts}) => {
+const EditActivityModal = ({editvisible,handleeditvisible,workout,getWorkouts,toast}) => {
 
 
 const [tempateName,setTemplateName]=useState('')
@@ -66,8 +66,20 @@ if(resp.error){
 }
 else{
     console.log(resp)
+  
     const allworkouts=await getWorkouts();
+    
   handleeditvisible(editvisible)
+  toast.success('Activity updated successfully!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
   
 }
 

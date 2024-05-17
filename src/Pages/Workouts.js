@@ -6,6 +6,8 @@ import EditWorkoutModal from '../Components/EditWorkoutModal';
 
 import { getAllWorkoutTemplates } from '../Services/WorkoutTemplates';
 
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Workouts = () => {
  
@@ -38,6 +40,7 @@ getTemplates()
   return (
 
 <div className='ml-5 mr-5 '> 
+
      <div className='text-violet-400 text-3xl font-bold w-fit p-6 flex items-center justify-center' id='title'>
         My Workout Templates
         <button htmlFor='addWorkout' className='ml-3 rounded-3xl h-8 w-8 text-lg bg-violet-400 text-white items-center justify-center' onClick={()=>handlevisible(visible)} >+</button>
@@ -46,7 +49,7 @@ getTemplates()
   <div className='h-full w-full items-center justify-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
     {templates.map((template, index) => (
       <div key={index} className='flex w-full items-center justify-center'>
-        {<Workoutcard template={template} visible={editVisible} handlevisible={handleEditvisible} setTemplateID={settemplateid} templateID={index} setTemplates={setTemplates}/>}
+        {<Workoutcard template={template} visible={editVisible} handlevisible={handleEditvisible} setTemplateID={settemplateid} templateID={index} setTemplates={setTemplates} toast={toast} />}
       </div>
     ))}
   </div>
@@ -60,8 +63,20 @@ getTemplates()
 </div>
 
 )}
-    <AddworkoutModal visible={visible} handlevisible={handlevisible} setTemplates={setTemplates}/>
-    <EditWorkoutModal visible={editVisible} handlevisible={handleEditvisible} template={templates[templateID]} setTemplates={setTemplates}/>
+<ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
+    <AddworkoutModal visible={visible} handlevisible={handlevisible} setTemplates={setTemplates} toast={toast}/>
+    <EditWorkoutModal visible={editVisible} handlevisible={handleEditvisible} template={templates[templateID]} setTemplates={setTemplates} toast={toast}/>
    </div>
    
 

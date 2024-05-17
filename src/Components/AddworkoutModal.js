@@ -3,7 +3,7 @@ import Inputfield from './Inputfield.js'
 import NumberInput from './NumberInput.js';
 import { createNewWorkoutTemplate, getAllWorkoutTemplates } from '../Services/WorkoutTemplates.js';
 
-const AddWorkoutModal = ({visible,handlevisible,setTemplates}) => {
+const AddWorkoutModal = ({visible,handlevisible,setTemplates,toast}) => {
 
 const [tempateName,setTemplateName]=useState("")
 const [muscle,setMuscle]=useState("")
@@ -55,6 +55,16 @@ if(resp.error){
   console.log("Error")
 }
 else{
+  toast.success('Template Created successfully!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
   handlevisible(visible)
 }
 console.log(resp)

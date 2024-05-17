@@ -2,13 +2,23 @@ import React from 'react'
 import { MdDelete, MdEdit } from "react-icons/md";
 import { deleteWorkoutTemplate, getAllWorkoutTemplates } from '../Services/WorkoutTemplates';
 
-const Workoutcard = ({template,visible,handlevisible,setTemplateID,templateID,setTemplates}) => {
+const Workoutcard = ({template,visible,handlevisible,setTemplateID,templateID,setTemplates,toast}) => {
   const workouts=template.workouts
 
   
   const deleteTemplate=async(id)=>{
     console.log(id)
     const resp=await deleteWorkoutTemplate(id);
+    toast.success('Template Deleted successfully!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
     const alltemps = await getAllWorkoutTemplates()
     setTemplates(alltemps)
     console.log(resp)
