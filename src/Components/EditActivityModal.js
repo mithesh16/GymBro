@@ -6,62 +6,73 @@ import {updateWorkout} from '../Services/Workouts.js';
 
 const EditActivityModal = ({editvisible,handleeditvisible,workout,getWorkouts}) => {
 
-console.log(workout?.exercises)
-const [tempateName,setTemplateName]=useState(workout?.title)
-const [muscle,setMuscle]=useState(workout?.muscle)
-//const [allExercise,setAllExercise]=useState(Array.from({ length: workout.exercises.length }, () => ({ name: '', reps: [], weights: [] })))
- const [allExercise,setAllExercise]=useState(workout?.exercises)
 
-// useEffect(() => {
-//     if (workout && workout.exercises) {
-//         setAllExercise(workout.exercises.map(exc => ({ name: exc.name, reps: exc.reps, weights: exc.weights })));
-//     }
-// }, [workout]);
-
-const [week,setWeek]=useState(workout?.week)
+const [tempateName,setTemplateName]=useState('')
+const [muscle,setMuscle]=useState('')
+ const [allExercise,setAllExercise]=useState('')
+const [week,setWeek]=useState('')
 
 const handleWeek=(week)=>{
     setWeek(week);
 }
 
+const handleReps=(rep,i,j)=>{
+  let tempArray=allExercise
+  tempArray[i].reps[j]=rep;
+  setAllExercise(tempArray)
+  
+  }
+  
+  const handleWeights=(weight,i,j)=>{
+      let tempArray=allExercise
+      tempArray[i].weights[j]=weight;
+      setAllExercise(tempArray)
+  }
+  
+
+  const setDetails=()=>{
+    setTemplateName(workout.title);
+    setMuscle(workout.muscle);
+    setAllExercise(workout.exercises);
+    setWeek(workout.week)
+  }
+  
+
+  useEffect(()=>{
+    if(workout){
+      console.log(workout)
+      setDetails();
+      }
+  
+  },[workout])
+  
+
 const editworkout=async()=>{
+
   const obj={
     title:tempateName,
     week:week,
     muscle:muscle,
     exercises:allExercise,
-  email:localStorage.getItem('email')
+    email:localStorage.getItem('email')
   }
-console.log(allExercise)
- console.log(obj)
-//   console.log(JSON.stringify(obj))
-// const resp=await updateWorkout(JSON.stringify(obj))
-// if(resp.error){
-//   console.log("Error")
 
-// }
-// else{
-//     console.log(resp)
-//     const allworkouts=await getWorkouts();
-//   handleeditvisible(editvisible)
+ //console.log(obj)
+
+const resp=await updateWorkout(JSON.stringify(obj),workout._id)
+if(resp.error){
+  console.log("Error")
+
+}
+else{
+    console.log(resp)
+    const allworkouts=await getWorkouts();
+  handleeditvisible(editvisible)
   
-// }
+}
 
 }
 
-
-const handleReps=(rep,i,j)=>{
-let tempArray=allExercise
-tempArray[i].reps[j]=rep;
-setAllExercise(tempArray)
-
-}
-
-const handleWeights=(weight,i,j)=>{
-    let tempArray=allExercise
-    tempArray[i].weights[j]=weight;
-    setAllExercise(tempArray)
-}
 
 
 

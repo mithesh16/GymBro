@@ -2,7 +2,7 @@ import React from 'react'
 import { MdEdit,MdDelete } from 'react-icons/md'
 import { deleteWorkout } from '../Services/Workouts'
 const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisible}) => {
-      console.log(workout)
+
         
   const deleteworkout=async(id)=>{
     console.log(id)
@@ -18,11 +18,11 @@ const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisi
           <div className='flex gap-x-5'>
             <p className='text-2xl text-violet-400'>{workout.title} </p>
             <div className='flex justify-center items-center'>
-              {/* <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ' onClick={() => {
+              <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ' onClick={() => {
                   handleeditvisible(editvisible)
                   setWorkout(workout)
               }} >
-                <MdEdit className='bg-violet-400' /></button> */}
+                <MdEdit className='bg-violet-400' /></button>
               <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ml-3' onClick={() => {
                 deleteworkout(workout._id)
               }} >
@@ -38,12 +38,16 @@ const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisi
            </div>
            <br/>
 
-           {workout.exercises.map((exercise, index) => (
-  <div class="grid grid-cols-3" key={index}>
+           {workout.exercises.map((exercise, exerciseIndex) => (
+  <div class="grid grid-cols-3" key={exerciseIndex}>
     <p class="text-start text-violet-400">{exercise.name}</p>
     <p class="text-center text-violet-400">{exercise.reps.length}</p>
     <p class="text-end text-violet-400">
-      ({exercise.reps[index]}x{exercise.weights[index]} Kg) ({exercise.reps[index]}x{exercise.weights[index]} Kg) ({exercise.reps[index]}x{exercise.weights[index]} Kg)
+      {exercise.reps.map((rep, repIndex) => (
+        <span key={repIndex}>
+          ({rep}x{exercise.weights[repIndex]} Kg)
+        </span>
+      ))}
     </p>
   </div>
 ))}

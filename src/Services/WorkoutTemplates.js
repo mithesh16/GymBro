@@ -1,9 +1,12 @@
+
+//const base_url="http://localhost:3000"
+const base_url="https://gymbromiddleware.onrender.com"
 const email=localStorage.getItem('email')
 export const createNewWorkoutTemplate=async(template)=>{
 
     //const email = JSON.parse(localStorage.getItem('user')).email;
     try {
-        const response = await fetch(`https://gymbromiddleware.onrender.com/workoutTemplates`, {
+        const response = await fetch(`${base_url}/workoutTemplates`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -23,7 +26,7 @@ export const createNewWorkoutTemplate=async(template)=>{
 export const getAllWorkoutTemplates = async()=>{
  
   try {
-    const response = await fetch(`https://gymbromiddleware.onrender.com/workoutTemplates?email=${email}`, {
+    const response = await fetch(`${base_url}/workoutTemplates?email=${email}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +46,7 @@ export const updateWorkoutTemplate=async(template,id)=>{
 console.log(id)
 console.log(template)
   try {
-    const response = await fetch(`https://gymbromiddleware.onrender.com/workoutTemplates/${id}`, {
+    const response = await fetch(`${base_url}/workoutTemplates/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -62,7 +65,7 @@ console.log(template)
 export const deleteWorkoutTemplate=async(id)=>{
 
   try{
-    const response=await fetch(`https://gymbromiddleware.onrender.com/workoutTemplates/${id}`,{
+    const response=await fetch(`${base_url}/workoutTemplates/${id}`,{
       method:'DELETE',
       headers: {
               'Content-Type': 'application/json',
