@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
 const Workouts = () => {
- 
+  const user=JSON.parse(localStorage.getItem('user'))
   const [visible, setVisible] = useState(false);
   const handlevisible = () => setVisible((cur) => !cur);
 
@@ -36,14 +36,14 @@ const settemplateid=(id)=>{
 useEffect(()=>{
 getTemplates()
 
-},[ ])
+},[user])
   return (
 
-<div className='ml-5 mr-5 '> 
+<div className='mx-5 '> 
 
      <div className='text-violet-400 text-3xl font-bold w-fit p-6 flex items-center justify-center' id='title'>
         My Workout Templates
-        <button htmlFor='addWorkout' className='ml-3 rounded-3xl h-8 w-8 text-lg bg-violet-400 text-white items-center justify-center' onClick={()=>handlevisible(visible)} >+</button>
+        <button htmlFor='addWorkout' className='ml-3 w-10 rounded-[50%] md:rounded-3xl h-8 md:w-8   text-lg bg-violet-400 text-white items-center justify-center' onClick={()=>handlevisible(visible)} >+</button>
       </div>
       {templates.length > 0 ? (
   <div className='h-full w-full items-center justify-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>

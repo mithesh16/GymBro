@@ -5,6 +5,8 @@ import Workouts from './Pages/Workouts';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import Activity from './Pages/Activity';
+import Pricing from './Pages/Pricing';
+import Team from './Pages/Team';
 
 function App() {
   return (
@@ -31,7 +33,19 @@ function App() {
            <Workouts/></>}/>
            <Route path='/activity' element={<> 
           <NavBar/>
-           <Activity/></>}/>
+
+           <Activity/></>
+          }/>
+          <Route path='/pricing' element={<> 
+          <NavBar/>
+
+           <Pricing/></>
+          }/>
+           <Route path='/team' element={<> 
+          <NavBar/>
+
+           <Team/></>
+          }/>
          
         </Routes>
       </div>

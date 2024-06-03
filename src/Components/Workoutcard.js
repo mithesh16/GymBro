@@ -26,22 +26,24 @@ const Workoutcard = ({template,visible,handlevisible,setTemplateID,templateID,se
 
   return (
 
-    <div class=" rounded-3xl mt-4 ring-1 p-5 ring-gray-700 w-64 h-[350px] drop-shadow-lg drop-shadow-white ">
+    <div class=" rounded-3xl mt-4 ring-1 p-5 pb-8 py ring-gray-700 w-64 h-fit  md:h-[350px] drop-shadow-lg drop-shadow-white ">
         <div className='flex justify-between w-full'>
-        <h3 id="tier-startup" class="text-2xl font-bold leading-8 text-white">{template.templateName}</h3> 
+        <h3 id="tier-startup" class="text-xl lg:text-2xl font-bold leading-8 text-white">{template.templateName}</h3> 
        
-        <div className='flex justify-center items-center'>
-        <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ' onClick={()=>{
-          setTemplateID(templateID);
+        <div className='flex justify-center items-center space-x-1'>
+  <button className='flex items-center justify-center text-black text-center w-8 h-8 rounded-3xl bg-violet-400' onClick={() => {
+    setTemplateID(templateID);
+    handlevisible(visible);
+  }}>
+    <MdEdit className='bg-violet-400'/>
+  </button>
 
-          handlevisible(visible);
-          }} ><MdEdit className='bg-violet-400'/></button>
-
-        <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ml-3' onClick={()=>{
-         deleteTemplate(template._id)
-        }} >< MdDelete className='bg-violet-400'/> </button>
-        </div>
-
+  <button className='flex items-center justify-center text-black text-center w-8 h-8 rounded-3xl bg-violet-400' onClick={() => {
+    deleteTemplate(template._id);
+  }}>
+    <MdDelete className='bg-violet-400'/>
+  </button>
+</div>
         </div>
         
         <p class="mt-1 text-sm leading-6 text-violet-400">{template.createdAt.slice(0,10)}</p>

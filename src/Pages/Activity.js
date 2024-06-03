@@ -44,14 +44,15 @@ const getTemplates=async()=>{
     },[ ])
 
   return (
-    <div>
+    <div className='mx-5 '> 
+
     <div className='text-violet-400 text-3xl font-bold w-fit p-6 flex items-center justify-center' id='title'>
-        My Activity
-        <button htmlFor='addWorkout' className='ml-3 rounded-3xl h-8 w-8 text-lg bg-violet-400 text-white items-center justify-center' onClick={()=>handlevisible(visible)} >+</button>
+       My Activity
+        <button htmlFor='addWorkout' className='ml-3 w-8 rounded-[50%] md:rounded-3xl h-8 md:w-8 text-lg bg-violet-400 text-white items-center justify-center' onClick={()=>handlevisible(visible)} >+</button>
       </div>
       <div className=''>
       {workouts.length > 0 ? (
-  <div className=' flex flex-col items-center justify-center gap-5'>
+  <div className=' flex flex-col items-center justify-center gap-5 py-6'>
    {workouts.map((workout, index) => (
   <ActivityCard workout={workout} getWorkouts={getWorkouts} setWorkout={setWorkout}handleeditvisible={handleeditvisible} editvisible={editvisible} toast={toast}/>
 ))}

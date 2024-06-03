@@ -27,7 +27,7 @@ const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisi
                 <div>
           <div className='flex gap-x-5'>
             <p className='text-2xl text-violet-400'>{workout.title} </p>
-            <div className='flex justify-center items-center'>
+            <div className='hidden md:flex justify-center items-center'>
               <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ' onClick={() => {
                   handleeditvisible(editvisible)
                   setWorkout(workout)
@@ -39,11 +39,11 @@ const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisi
                 < MdDelete className='bg-violet-400' /> </button>
             </div>
           </div>
-          <p className='text-xl'>Muscle : <span className='text-violet-400'>{workout.muscle}</span></p>
+          <p className='text-md md:text-xl'>Muscle : <span className='text-violet-400 text-xl'>{workout.muscle}</span></p>
         </div>
            <div>
-           <p className='text-2xl text-violet-400 text-end'>{workout.createdAt.slice(0,10)}</p>
-            <p className='text-xl'> Week no :<span className='text-violet-400'> {workout.week}</span></p>
+           <p className='text-md md:text-2xl text-violet-400 text-end'>{workout.createdAt.slice(0,10)}</p>
+            <p className='text-md md:text-xl'> Week no :<span className='text-violet-400 text-xl'> {workout.week}</span></p>
            </div>
            </div>
            <br/>
@@ -59,6 +59,7 @@ const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisi
         </span>
       ))}
     </p>
+    
   </div>
 ))}
         
@@ -66,7 +67,17 @@ const ActivityCard = ({workout,getWorkouts,setWorkout,handleeditvisible,editvisi
             
             
             
-      
+      <div className='flex justify-center items-center md:hidden'>
+              <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ' onClick={() => {
+                  handleeditvisible(editvisible)
+                  setWorkout(workout)
+              }} >
+                <MdEdit className='bg-violet-400' /></button>
+              <button className=' flex items-center justify-center  text-black text-center w-8 h-8  rounded-3xl bg-violet-400 ml-3' onClick={() => {
+                deleteworkout(workout._id)
+              }} >
+                < MdDelete className='bg-violet-400' /> </button>
+            </div>
     </div>
   )
 }

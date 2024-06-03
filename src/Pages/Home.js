@@ -8,10 +8,12 @@ const Home = () => {
   // };
 
   return (
-   <div>
+
+      <div className="h-screen pb-[50%] bg-[url('')]  bg-contain bg-no-repeat md:bg-right bg-opacity-1 bg-black md:pb-0 md:h-auto  md:bg-none flex items-center md:block">
     <HeroSection/>
+    </div>
+    
    
-   </div>
   )
 }
 
