@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
 const Activity = () => {
-
+  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('user')));
   const [visible, setVisible] = useState(false);
   const[editvisible,setEditvisible]=useState(false)
   const handlevisible = () => setVisible((cur) => !cur);
@@ -41,7 +41,7 @@ const getTemplates=async()=>{
   useEffect(()=>{
     getTemplates()
     getWorkouts()
-    },[ ])
+    },[user])
 
   return (
     <div className='mx-5 '> 

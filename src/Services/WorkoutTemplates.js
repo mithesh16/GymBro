@@ -1,10 +1,10 @@
 
 //const base_url="http://localhost:3000"
 const base_url="https://gymbromiddleware.onrender.com"
-const email=localStorage.getItem('email')
+
 export const createNewWorkoutTemplate=async(template)=>{
 
-    //const email = JSON.parse(localStorage.getItem('user')).email;
+  const email=JSON.parse(localStorage.getItem('user')).email
     try {
         const response = await fetch(`${base_url}/workoutTemplates`, {
           method: 'POST',
@@ -24,7 +24,7 @@ export const createNewWorkoutTemplate=async(template)=>{
     };
 
 export const getAllWorkoutTemplates = async()=>{
- 
+  const email=JSON.parse(localStorage.getItem('user')).email
   try {
     const response = await fetch(`${base_url}/workoutTemplates?email=${email}`, {
       method: 'GET',
@@ -43,6 +43,7 @@ export const getAllWorkoutTemplates = async()=>{
 };
 
 export const updateWorkoutTemplate=async(template,id)=>{
+  const email=JSON.parse(localStorage.getItem('user')).email
 console.log(id)
 console.log(template)
   try {
@@ -63,6 +64,7 @@ console.log(template)
 };
 
 export const deleteWorkoutTemplate=async(id)=>{
+  const email=JSON.parse(localStorage.getItem('user')).email
 
   try{
     const response=await fetch(`${base_url}/workoutTemplates/${id}`,{

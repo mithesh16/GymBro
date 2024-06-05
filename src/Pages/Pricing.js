@@ -2,12 +2,12 @@ import React from 'react'
 
 const Pricing = () => {
   return (
-    <div>
+    <div className=' '>
         <div className='flex items-center justify-center'>
-        <h1 className='text-violet-400 text-[45px] font-bold w-fit  '>Pricing</h1>
+        <h1 className='text-violet-400 text-[45px] font-bold w-fit '>Pricing</h1>
         </div>
 
-    <div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 text-center"> 
+    <div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 text-center "> 
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8">
   <div class="rounded-2xl border border-gray-200 p-6 shadow-sm sm:px-8 lg:p-12  hover:border-violet-400 hover:ring-violet-400">
       <div class="text-center">

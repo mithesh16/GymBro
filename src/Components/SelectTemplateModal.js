@@ -9,8 +9,8 @@ const SelectTemplateModal = ({visible,handlevisible,templates,setTemp,setChoice}
   const navigation=useNavigate();
     if (!visible) return null;
     return (
-   <div className=' fixed inset-2 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center'>
-      <div className='bg-gray-900 w-[95%] h-[700px] border-white  p-2 rounded-xl items-center justify-center ' >
+   <div className=' fixed inset-2 bg-gray-900 bg-opacity-50 backdrop-blur-sm flex justify-center items-center sm:py-5 md:py-0'>
+      <div className='bg-gray-900 w-[95%] h-[600px] md:h-[700px] border-white  p-2 rounded-xl items-center justify-center pb-5  overflow-y-auto ' >
       <button className=' absolute text-black text-center w-8 h-8 rounded-3xl bg-violet-400 ' onClick={()=>handlevisible(visible)}>X</button>
       <h3 className="text-2xl font-bold mb-4 mt-4 bg-inherit text-violet-400 text-center">Select Template </h3>
       {templates.length > 0 ? (
@@ -25,7 +25,7 @@ const SelectTemplateModal = ({visible,handlevisible,templates,setTemp,setChoice}
 
   
 ) : (
-<div className='w-full h-full flex items-center justify-center'>
+<div className='w-full h-full flex items-center justify-center bg-gray-900'>
   <div className='text-center justify-center items-center  pt-24'>
     <h1 className='font-bold text-4xl'>No templates available</h1>
     <h3 className='font-bold text-2xl'>Create a new template</h3>

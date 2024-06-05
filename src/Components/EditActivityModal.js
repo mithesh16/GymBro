@@ -90,8 +90,8 @@ else{
 
   if (!editvisible) return null;
     return (
-     <div className=' fixed inset-2 overflow-y-scroll bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center'>
-      <div className='bg-gray-900 w-[500px] h-[700px] border-white  p-2 rounded-xl items-center justify-center ' >
+      <div className=' fixed inset-2 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center'>
+      <div className='bg-gray-900 w-[400px] h-[600px] border-white  p-2 rounded-xl items-center justify-center overflow-y-auto ' >
       <button className=' absolute text-black text-center w-8 h-8 rounded-3xl bg-violet-400 ' onClick={()=>handleeditvisible(editvisible)}>X</button>
       <h3 className="text-2xl font-bold mb-4 mt-4 bg-inherit text-violet-400 text-center">Edit Activty </h3>
           <form  className="space-y-5 mt-10 bg-gray-900">

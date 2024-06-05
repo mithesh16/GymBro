@@ -2,7 +2,9 @@ import React,{useState,useEffect} from 'react'
 import Inputfield from './Inputfield.js'
 import NumberInput from './NumberInput.js';
 import { createNewWorkoutTemplate, getAllWorkoutTemplates } from '../Services/WorkoutTemplates.js';
+import { IoIosArrowBack } from "react-icons/io";
 import {createNewWorkout} from '../Services/Workouts.js';
+import { BsBack } from 'react-icons/bs';
 const AddActivityModal = ({visible,handlevisible,template,setChoice,getWorkouts,toast}) => {
 
 
@@ -75,9 +77,9 @@ const handleWeights=(weight,i,j)=>{
 
   if (!visible) return null;
     return (
-     <div className=' fixed inset-2 overflow-y-scroll bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center'>
-      <div className='bg-gray-900 w-[500px] h-[700px] border-white  p-2 rounded-xl items-center justify-center ' >
-      <button className=' absolute text-black text-center w-8 h-8 rounded-3xl bg-violet-400 ' onClick={()=>setChoice(0)}>-</button>
+      <div className=' fixed inset-2 bg-gray-900 bg-opacity-50 backdrop-blur-sm flex justify-center items-center sm:py-5 md:py-0'>
+      <div className='bg-gray-900 w-[95%] h-[600px] md:h-[700px] border-white  p-2 rounded-xl items-center justify-center pb-5  overflow-y-auto ' >
+      <button className=' absolute text-black text-center w-8 h-8 rounded-3xl bg-violet-400 flex items-center justify-center ' onClick={()=>setChoice(0)}><IoIosArrowBack className='bg-transparent font-bold' size={20}/></button>
       <h3 className="text-2xl font-bold mb-4 mt-4 bg-inherit text-violet-400 text-center">Add Activty </h3>
           <form  className="space-y-5 mt-10 bg-gray-900">
          
