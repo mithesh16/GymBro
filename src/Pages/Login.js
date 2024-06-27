@@ -38,7 +38,7 @@ const handleLogin=(e)=>{
     <div className="items-center justify-center w-full h-screen" >
         <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm text-center">
-      <h1 className='mx-auto text-4xl font-bold text-violet-400'>GYMBROS</h1>
+      <h1 className='mx-auto text-4xl font-bold text-violet-400 font-["Futura"]'>GYMBROS</h1>
       <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-white">Sign in to your account</h2>
     </div>
   

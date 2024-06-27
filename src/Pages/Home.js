@@ -1,5 +1,7 @@
 import React from 'react'
 import HeroSection from '../Components/HeroSection'
+import HeatMapActivity from '../Components/HeatMapActivity'
+import Footer from '../Components/Footer'
 
 
 const Home = () => {
@@ -9,8 +11,15 @@ const Home = () => {
 
   return (
 
-      <div className="h-screen pb-[50%] bg-[url('')]  bg-contain bg-no-repeat md:bg-right bg-opacity-1 bg-black md:pb-0 md:h-auto  md:bg-none flex items-center md:block">
+      <div className="h-screen pb-[50%] mt-10 bg-opacity-1 bg-black block">
     <HeroSection/>
+    <div className='w-full pt-10 lg:h-[800px]'>
+    <div className='text-violet-400 text-3xl font-bold w-fit p-6 pl-10 flex items-center justify-center' id='title'>
+       My Activity Calender</div>
+    <HeatMapActivity/>
+    </div>
+    <Footer/>
+    
     </div>
     
    

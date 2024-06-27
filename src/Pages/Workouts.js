@@ -8,6 +8,7 @@ import { getAllWorkoutTemplates } from '../Services/WorkoutTemplates';
 
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import Footer from '../Components/Footer';
 
 const Workouts = () => {
   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('user')));
@@ -44,8 +45,8 @@ useEffect(()=>{
 getTemplates()
 },[])
   return (
-
-<div className='mx-5 '> 
+<div>
+<div className='mx-5 pb-40 md:pb-60'> 
 
      <div className='text-violet-400 text-3xl font-bold w-fit p-6 flex items-center justify-center' id='title'>
         My Workout Templates
@@ -60,7 +61,7 @@ getTemplates()
     ))}
   </div>
 ) : (
-<div className='w-full h-full flex items-center justify-center'>
+<div className='w-full h-full flex items-center justify-center md:pb-20'>
   <div className='text-center justify-center items-center  pt-24'>
     <h1 className='font-bold text-4xl'>No templates available</h1>
     <h3 className='font-bold text-2xl'>Create a new template</h3>
@@ -83,10 +84,12 @@ theme="dark"
 />
     <AddworkoutModal visible={visible} handlevisible={handlevisible} setTemplates={setTemplates} toast={toast}/>
     <EditWorkoutModal visible={editVisible} handlevisible={handleEditvisible} template={templates[templateID]} setTemplates={setTemplates} toast={toast}/>
+  
    </div>
    
 
-
+<Footer/>
+</div>
   
   )
 }

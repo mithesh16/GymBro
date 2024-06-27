@@ -1,14 +1,24 @@
 import React from 'react'
-
+import {subscripePlan} from '../Services/Pricing';
+import logo from '../Assets/Images/gymbros.png'
+import Footer from '../Components/Footer';
 const Pricing = () => {
+
+  const subscribe=async ()=>{
+    const resp=await subscripePlan();
+    console.log(resp);
+  }
+
   return (
     <div className=' '>
         <div className='flex items-center justify-center'>
         <h1 className='text-violet-400 text-[45px] font-bold w-fit '>Pricing</h1>
         </div>
 
-    <div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 text-center "> 
+    <div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:pb-20 text-center "> 
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8">
+
+{/* free plan */}
   <div class="rounded-2xl border border-gray-200 p-6 shadow-sm sm:px-8 lg:p-12  hover:border-violet-400 hover:ring-violet-400">
       <div class="text-center">
         <h2 class="text-lg font-medium text-white">
@@ -37,6 +47,7 @@ const Pricing = () => {
           </svg>
 
           <span class="text-white"> 10 Workout Templates </span>
+
         </li>
 
         <li class="flex items-center gap-1">
@@ -52,6 +63,7 @@ const Pricing = () => {
           </svg>
 
           <span class="text-white"> 10 Activities </span>
+          
         </li>
 
         <li class="flex items-center gap-1">
@@ -79,8 +91,9 @@ const Pricing = () => {
       >
         Current Plan
       </a>
-    </div>
-    
+  </div>
+  
+{/* pro plan */}
     <div class="rounded-2xl border border-white p-6 shadow-sm ring-1 ring-white sm:order-last sm:px-8 lg:p-12 hover:border-violet-400 hover:ring-violet-400">
       <div class="text-center">
         <h2 class="text-lg font-medium text-white">
@@ -89,7 +102,7 @@ const Pricing = () => {
         </h2>
 
         <p class="mt-2 sm:mt-4">
-          <strong class="text-3xl font-bold text-white sm:text-4xl"> 10$ </strong>
+          <strong class="text-3xl font-bold text-white sm:text-4xl"> Rs.50 </strong>
 
           <span class="text-sm font-medium text-white">/month</span>
         </p>
@@ -123,9 +136,10 @@ const Pricing = () => {
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
 
-          <span class="text-white"> Unlimited Activities </span>
+          <span class="text-white"> 30 Activities </span>
+          <span class="text-sm font-medium text-white">/month</span>
         </li>
-
+        <li class="flex items-center gap-1 text-violet-400 ">Coming soon:</li> 
         <li class="flex items-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -139,6 +153,7 @@ const Pricing = () => {
           </svg>
 
           <span class="text-white"> Built In Templates </span>
+         
         </li>
 
         <li class="flex items-center gap-1">
@@ -158,7 +173,7 @@ const Pricing = () => {
 
        
 
-        <li class="flex items-center gap-1">
+        {/* <li class="flex items-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -170,13 +185,15 @@ const Pricing = () => {
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
 
-          <span class="text-white"> Community access </span>
-        </li>
+          <span class="text-white"> Community access  </span>
+       
+
+        </li> */}
       </ul>
 
       <a
-        href="#"
-        class="mt-8 block rounded-full border border-violet-400 bg-violet-400 px-12 py-3 text-center text-sm font-medium text-white hover:bg-violet-400 hover:ring-1 hover:ring-violet-400 focus:outline-none focus:ring active:text-violet-400"
+        href='/checkout'
+        class="mt-8 w-full block rounded-full border border-violet-400 bg-violet-400 px-12 py-3 text-center text-sm font-medium text-white hover:bg-violet-400 hover:ring-1 hover:ring-violet-400 focus:outline-none focus:ring active:text-violet-400"
       >
         Get Started
       </a>
@@ -184,6 +201,7 @@ const Pricing = () => {
    
    </div>
   </div>
+  <Footer/>
 </div>
   )
 }

@@ -7,6 +7,7 @@ import { getAllWorkouts } from '../Services/Workouts';
 import EditActivityModal from '../Components/EditActivityModal';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import Footer from '../Components/Footer';
 
 const Activity = () => {
   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('user')));
@@ -44,7 +45,9 @@ const getTemplates=async()=>{
     },[user])
 
   return (
-    <div className='mx-5 '> 
+    <div>
+<div className='mx-5 pb-40 md:pb-60'> 
+
 
     <div className='text-violet-400 text-3xl font-bold w-fit p-6 flex items-center justify-center' id='title'>
        My Activity
@@ -58,7 +61,7 @@ const getTemplates=async()=>{
 ))}
   </div>
 ) : (
-<div className='w-full h-full flex items-center justify-center'>
+<div className='w-full h-full flex items-center justify-center md:pb-20'>
   <div className='text-center justify-center items-center  pt-24'>
     <h1 className='font-bold text-4xl'>No activity created</h1>
     <h3 className='font-bold text-2xl'>Track a new activity</h3>
@@ -85,6 +88,8 @@ theme="dark"
       {choice==0?(<SelectTemplateModal visible={visible} handlevisible={handlevisible} templates={templates} setTemp={setTemp} setChoice={setChoice}/>):(<AddActivityModal visible={visible} handlevisible={handlevisible} template={temp} setChoice={setChoice} getWorkouts={getWorkouts} toast={toast}/> )
       }
       <EditActivityModal handleeditvisible={handleeditvisible} editvisible={editvisible} workout={workout} getWorkouts={getWorkouts} toast={toast}/>
+</div>
+      <Footer/>
     </div>
 
     
