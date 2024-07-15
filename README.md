@@ -26,7 +26,7 @@ Clone the backend server of the project
 Go to the project directory
 
 ```bash
-  cd project-name
+  cd GymBro
 ```
 
 Install dependencies
