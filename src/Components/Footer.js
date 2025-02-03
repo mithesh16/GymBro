@@ -1,35 +1,59 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
+import { Github, Twitter, Instagram, Copyright, Linkedin } from "lucide-react";
 const Footer = () => {
   return (
-    <footer class="mt-10 items-center justify-center px-5">
-  <div class="mx-auto max-w-screen-xl text-center">
-      <a href="#" class="flex justify-center items-center text-3xl font-semibold text-violet-400 font-['futura']">
-          GYMBROS
-          
-      </a>
-      <p class="my-6 text-lg text-gray-500 dark:text-gray-400">Track workouts and be a better version of Yourself</p>
-      <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
-          <li>
-              <a href="/aboutus" class="mr-4 hover:underline md:mr-6 ">About Us</a>
-          </li>
-          <li>
-              <a href="/termsandconditons" class="mr-4 hover:underline md:mr-6">Terms and Condition</a>
-          </li>
-          <li>
-              <a href="/privacypolicy" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-          </li>
-          <li>
-              <a href="/refund" class="mr-4 hover:underline md:mr-6 ">Refund Policy</a>
-          </li>
-          <li>
-              <a href="contact" class="mr-4 hover:underline md:mr-6">Contact us</a>
-          </li>
-      </ul>
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline font-['futura']">GYMBROS™</a>. All Rights Reserved.</span>
-  </div>
-</footer>
-  )
-}
+    <footer className="w-full bg-[#1A1F2C] border-t border-white/10 py-12">
+    <div className="container bg-[#1A1F2C] mx-auto px-4">
+      <div className="grid bg-[#1A1F2C] grid-cols-1 md:grid-cols-4 gap-8">
 
+        <div className="space-y-4 bg-[#1A1F2C]">
+          <h3 className="text-2xl font-bold text-violet-400 bg-transparent">GymBros</h3>
+          <p className="text-gray-400 bg-transparent">Track your fitness journey with precision and purpose.</p>
+        </div>
+
+
+        <div className="space-y-4 bg-transparent">
+          <h4 className="text-lg font-semibold text-white bg-transparent">Quick Links</h4>
+          <ul className="space-y-2 bg-transparent">
+            <li className='bg-transparent'><Link to="/" className="text-gray-400 hover:text-primary transition-colors bg-transparent">Home</Link></li>
+            <li className='bg-transparent'><Link to="/workouts" className="text-gray-400 hover:text-primary transition-colors bg-transparent">Workouts</Link></li>
+            <li className='bg-transparent'><Link to="/activity" className="text-gray-400 hover:text-primary transition-colors bg-transparent">Activity</Link></li>
+          </ul>
+        </div>
+
+
+        <div className="space-y-4 bg-transparent">
+          <h4 className="text-lg font-semibold text-white bg-transparent">Contact</h4>
+          <ul className="space-y-2 bg-transparent">
+            <li className="text-gray-400 bg-transparent">mitheshsrini@gmail.com</li>
+          </ul>
+        </div>
+
+
+        <div className="space-y-4 bg-transparent">
+          <h4 className="text-lg font-semibold text-white bg-transparent">Follow Us</h4>
+          <div className="flex space-x-4 bg-transparent">
+            <a href="https://github.com/mithesh16" target="_blank" rel="noopener noreferrer" className="bg-transparent text-gray-400 hover:text-primary transition-colors">
+              <Github className="w-6 h-6 bg-transparent" />
+            </a>
+            <a href="https://linkedin.com/in/mithesh-srinivasan" target="_blank" rel="noopener noreferrer" className="bg-transparent text-gray-400 hover:text-primary transition-colors">
+              <Linkedin className="w-6 h-6 bg-transparent" />
+            </a>
+            <a href="https://www.instagram.com/_.mithesh._/" target="_blank" rel="noopener noreferrer" className="bg-transparent text-gray-400 hover:text-primary transition-colors">
+              <Instagram className="w-6 h-6 bg-transparent" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="mt-12 pt-8 border-t border-white/10 flex items-center justify-center bg-transparent text-gray-400 text-sm">
+        <Copyright className="w-4 h-4 mr-2 bg-transparent" /> 
+        <p className='bg-transparent'>2024 GymBros. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+);
+};
 export default Footer

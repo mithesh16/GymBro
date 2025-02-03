@@ -51,7 +51,7 @@ const NavBar = () => {
             className='p-2 text-md rounded-md my-2 cursor-pointer duration-300'
           >
             <Link to={`/${item.link}`}>
-            <p className='p-2 hover:bg-violet-400 cursor-pointer duration-300 text-lg bg-tranparent rounded-md hover:text-black'>{item.text}</p></Link>
+            <p className='p-2 hover:bg-violet-400 ease-in cursor-pointer duration-300 text-lg bg-tranparent rounded-md hover:text-black'>{item.text}</p></Link>
           </li>
         ))}
       </ul>

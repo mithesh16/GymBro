@@ -4,25 +4,26 @@ const HeroSection = () => {
 
   const user=JSON.parse(localStorage.getItem('user'));
   return (
-    <section className="bg-mobile-hero md:bg-desktop-hero  bg-contain bg-no-repeat md:bg-right  bg-top-10 bg-opacity-5 bg-black ">
-    <div className=" bg-transparent container h-full flex flex-col justify-center px-6 py-4 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between"
+    <section className="min-h-[80vh] bg-gradient-to-tl from-violet-900 via-transparent to-transparent ">
+    <div className="bg-transparent container h-full flex justify-center px-6 py-4 mx-auto sm:py-12"
     >
-      <div className="flex flex-col justify-center px-4 pb-4 md:p-6 rounded-sm lg:max-w-xl xl:max-w-2xl text-left bg-transparent">
-        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-none  bg-inherit">Welcome
-          <span className="dark:text-violet-400 text-3xl md:text-4xl lg:text-5xl ml-4 bg-inherit">{user.displayName}</span>
+      <div className="flex flex-col justify-center items-center  pb-4 md:p-6 rounded-sm lg:max-w-xl xl:max-w-2xl  bg-transparent">
+      <h1 className="text-3xl md:text-6xl font-bold mb-6">
+          Track Your <span className="text-violet-500">Progress</span><br />
+          Achieve Your Goals
         </h1>
-        <p className="mt-6 mb-8 text-lg md:text-xl lg:text-xl sm:mb-12 text-justify bg-inherit">Track your Workouts, get Better Results, and be the <br/>Best Version of Yourself with
-         <span className="text-2xl sm:mb-12 text-violet-400 text-center bg-inherit font-['Futura']">    GYMBROS</span> 
+        <p className="text-md md:text-xl text-gray-300 mb-8 text-center bg-transparent">
+          Create custom workout templates and track your fitness journey with <span className='text-violet-500'>GymBros</span> - 
+          your ultimate workout companion.
         </p>
+        
         <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start bg-transparent">
-          <a rel="noopener noreferrer" href="/activity" className="px-8 py-3 text-lg font-semibold text-center rounded bg-violet-400 text-gray-900 hover:bg-violet-500  ">Track Workout</a>
-          <a rel="noopener noreferrer" href="/workouts" className="px-8 py-3 text-lg font-semibold border text-center rounded border-gray-100 hover:bg-gray-800 ">Add Workout</a>
+          <a rel="noopener noreferrer" href="/activity" className="px-10 py-2 text-md font-medium text-center rounded-lg bg-violet-400 text-gray-900 hover:bg-violet-500  ">Track Workout</a>
+          <a rel="noopener noreferrer" href="/workouts" className="px-10 py-2 text-md font-medium text-center rounded-lg bg-gray-700  hover:bg-gray-800 ">Create Template</a>
         </div>
         
       </div>
-      {/* <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-        <img src="assets/svg/Business_SVG.svg" alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
-      </div> */}
+
     </div>
   </section>
   )

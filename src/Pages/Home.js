@@ -2,7 +2,7 @@ import React from 'react'
 import HeroSection from '../Components/HeroSection'
 import HeatMapActivity from '../Components/HeatMapActivity'
 import Footer from '../Components/Footer'
-
+import Features from '../Components/Features'
 
 const Home = () => {
   // const style={
@@ -11,15 +11,13 @@ const Home = () => {
 
   return (
 
-      <div className="h-screen pb-[50%] mt-10 bg-opacity-1 bg-black block">
+      <div className="min-h-screen mt-10  bg-black block">
     <HeroSection/>
-    <div className='w-full pt-10 lg:h-[800px]'>
-    <div className='text-violet-400 text-3xl font-bold w-fit p-6 pl-10 flex items-center justify-center' id='title'>
-       My Activity Calender</div>
-    <HeatMapActivity/>
-    </div>
+'
+    <Features/>
+
     <Footer/>
-    
+
     </div>
     
    

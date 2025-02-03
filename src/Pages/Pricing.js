@@ -10,7 +10,7 @@ const Pricing = () => {
   }
 
   return (
-    <div className=' '>
+    <div className='h-screen'>
         <div className='flex items-center justify-center'>
         <h1 className='text-violet-400 text-[45px] font-bold w-fit '>Pricing</h1>
         </div>
@@ -195,7 +195,7 @@ const Pricing = () => {
         href='/checkout'
         class="mt-8 w-full block rounded-full border border-violet-400 bg-violet-400 px-12 py-3 text-center text-sm font-medium text-white hover:bg-violet-400 hover:ring-1 hover:ring-violet-400 focus:outline-none focus:ring active:text-violet-400"
       >
-        Get Started
+        Coming Soon
       </a>
     </div>
    
